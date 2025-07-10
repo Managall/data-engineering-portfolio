@@ -3,10 +3,9 @@
 from .logger import logger
 
 def transform_data(df):
-    """Aplica transformaciones simples al DataFrame."""
     logger.info("[Transform] Iniciando transformación de datos...")
 
-    # Renombrar columnas
+    # Limpiar nombres de las columnas
     df.columns = (
     df.columns
     .str.strip()  # elimina espacios al inicio y fin
@@ -17,10 +16,16 @@ def transform_data(df):
     .str.replace(")", "")
     )
 
-    # Eliminar filas con valores faltantes
+    # Validar columnas esperadas
+    expected_columns = {"index","heightinches","weightpounds"}
+    actual_columns = set(df.columns)
+    
+    if not expected_columns.issubset(actual_columns):
+        logger.error(f"[Transform] Columnas faltantes, Esperadas: {expected_columns}, Encontradas: {actual_columns}")
+        return None
+    
+    # Limpieza y conversión de tipos
     df = df.dropna()
-
-    # Convertir a tipos correctos
     try:
         df["heightinches"] = df["heightinches"].astype(float)
         df["weightpounds"] = df["weightpounds"].astype(float)
