@@ -1,0 +1,6 @@
+2025-07-09 20:53:55,889 [INFO] 🚀 Iniciando pipeline ETL...
+2025-07-09 20:53:55,898 [INFO] [Extract] Datos extraídos correctamente desde: data/source_data.csv
+2025-07-09 20:53:55,898 [INFO] [Transform] Iniciando transformación de datos...
+2025-07-09 20:53:55,907 [INFO] [Transform] Transformaciones completadas.
+2025-07-09 20:53:55,938 [INFO] [Load] Datos cargados correctamente en la base: data/output.db
+2025-07-09 20:53:55,938 [INFO] ✅ Pipeline completado.

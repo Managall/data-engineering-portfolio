@@ -1,8 +1,10 @@
 # etl/transform.py
 
+from .logger import logger
+
 def transform_data(df):
     """Aplica transformaciones simples al DataFrame."""
-    print("[Transform] Iniciando transformación de datos...")
+    logger.info("[Transform] Iniciando transformación de datos...")
 
     # Renombrar columnas
     df.columns = (
@@ -19,8 +21,13 @@ def transform_data(df):
     df = df.dropna()
 
     # Convertir a tipos correctos
-    df["heightinches"] = df["heightinches"].astype(float)
-    df["weightpounds"] = df["weightpounds"].astype(float)
+    try:
+        df["heightinches"] = df["heightinches"].astype(float)
+        df["weightpounds"] = df["weightpounds"].astype(float)
+    except Exception as e:
+        logger.error("[Transform] Transformaciones aplicadas correctamente.")
+        return None
 
-    print("[Transform] Transformaciones aplicadas correctamente.")
+    logger.info("[Transform] Transformaciones completadas.")
     return df
+

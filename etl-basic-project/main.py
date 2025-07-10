@@ -3,9 +3,10 @@
 from etl.extract import extract_data
 from etl.transform import transform_data
 from etl.load import load_data
+from etl.logger import logger
 
 def run_pipeline():
-    print("🚀 Iniciando pipeline ETL...")
+    logger.info("🚀 Iniciando pipeline ETL...")
     
     filepath = "data/source_data.csv"
     db_path = "data/output.db"
@@ -21,7 +22,7 @@ def run_pipeline():
     # 3. Load
     load_data(df_transformed, db_path)
 
-    print("✅ Pipeline completado.")
+    logger.info("✅ Pipeline completado.")
 
 if __name__ == "__main__":
     run_pipeline()
