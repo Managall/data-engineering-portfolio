@@ -1,4 +1,14 @@
-# .gitignore
-venv/
-__pycache__/
+# Logs
+*.log
 *.db
+
+# Entorno virtual
+venv/
+
+# Archivos de pytest
+.pytest_cache/
+__pycache__/
+
+# Archivos de configuración específicos
+*.sqlite
+.DS_Store
