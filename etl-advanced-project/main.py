@@ -6,21 +6,24 @@ from etl.transform import transform_data
 from etl.load import load_data
 from etl.logger import logger
 
+def run_pipeline():
 
+    logger.info("🚀 Iniciando pipeline ETL...")
 
-logger.info("🚀 Iniciando pipeline ETL...")
+    # ETL Step 1: Extraer
+    df = extract_data()
 
-# ETL Step 1: Extraer
-df = extract_data()
+    # ETL Step 2: Validar
+    df_validado = validate_data(df)
 
-# ETL Step 2: Validar
-df_validado = validate_data(df)
+    # ETL Step 3: Transformar
+    df_transformado = transform_data(df_validado)
 
-# ETL Step 3: Transformar
-df_transformado = transform_data(df_validado)
+    # ETL Step 4: Cargar
+    load_data(df_transformado)
 
-# ETL Step 4: Cargar
-load_data(df_transformado)
+    logger.info("✅ Pipeline ETL finalizado con éxito.")
 
-logger.info("✅ Pipeline ETL finalizado con éxito.")
+if __name__ == "__main__":
+    run_pipeline()
 
