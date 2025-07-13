@@ -1,0 +1,17 @@
+# Ignorar entornos virtuales
+.venv/
+venv/
+
+# Cache de Python
+__pycache__/
+*.pyc
+
+# Archivos de logs
+*.log
+
+# Git
+.git/
+.gitignore
+
+# Otros
+.DS_Store
