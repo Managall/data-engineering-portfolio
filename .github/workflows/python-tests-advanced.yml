@@ -1,12 +1,12 @@
-name: Basic ETL Tests
+name: Advanced ETL Python Tests
 
 on:
   push:
     paths:
-      - 'etl-basic-project/**'
+      - 'etl-advanced-project/**'
   pull_request:
     paths:
-      - 'etl-basic-project/**'
+      - 'etl-advanced-project/**'
 
 jobs:
   test:
@@ -17,6 +17,6 @@ jobs:
         with:
           python-version: '3.11'
       - run: |
-          cd etl-basic-project
+          cd etl-advanced-project
           pip install -r requirements.txt
           pytest
