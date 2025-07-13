@@ -1,15 +1,19 @@
 # etl/logger.py
-
+import os
 import logging
 
-# Configurar logger
+# Crear carpeta de logs si no existe
+os.makedirs("logs", exist_ok=True)
+
+# Configurar logging global
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("etl.log"),         # Guarda en archivo
-        logging.StreamHandler()                 # Muestra en consola
+        logging.FileHandler("logs/etl.log", mode='a'),
+        logging.StreamHandler()
     ]
 )
 
+# Instancia específica de logger para el módulo
 logger = logging.getLogger(__name__)
