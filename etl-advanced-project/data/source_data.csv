@@ -1,0 +1,7 @@
+id,nombre,edad,email,suscrito
+1,ana,28,ana@example.com,True
+2,beto,35,beto@example.com,False
+3,Camila,,camila@example.com,True
+4,Diego,40,diegoxample.com,True
+5,elena,23,elena@example.com,False
+6,Felipe,29,,True
